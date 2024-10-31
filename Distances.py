@@ -6,13 +6,13 @@ Created on Thu Oct 31 15:58:33 2024
 @author: meganellis
 """
 
-import trilobot from Trilobot
+from trilobot import Trilobot
 import matplotlib.pyplot as plt
 
 tbot = Trilobot()
 
 def record_distance():
-    distance = trilobot.read_distance()
+    distance = tbot.read_distance()
     return distance
 
 def main():
