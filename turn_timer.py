@@ -10,7 +10,7 @@ import time
 bot = Trilobot()
 
 # Speed for the turn (adjust)
-turn_speed = 0.5
+turn_speed = 0.6
 
 try:
     # Record the start time
