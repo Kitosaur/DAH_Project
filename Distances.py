@@ -33,13 +33,14 @@ def main():
         #Ask the user to enter the corresponding distance they measure. 
         user_distance = float(input("Enter the distance you measured in cm: "))
         user_distances.append(user_distance)
-        
+
+    #Print out the results so errors can be identified.
     print("\nSensor Distances:")
     print(sensor_distances)
     print("\nUser Distances:")
     print(user_distances)
     
-    
+    #Plot two series on a graph of the distances measured against the measurement number.
     plt.figure(figsize=(10, 5))
     plt.plot(range(1, 11), sensor_distances, 'o-', label="Sensor Distance")
     plt.plot(range(1, 11), user_distances, 'x-', label="User Measured Distance")
