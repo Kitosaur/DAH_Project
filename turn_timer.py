@@ -10,7 +10,7 @@ import time
 bot = Trilobot()
 
 # Speed for the turn (adjust)
-turn_speed = 0.6
+turn_speed = 0.9
 
 try:
     # Record the start time
@@ -20,7 +20,7 @@ try:
     bot.turn_left(speed=turn_speed)
     
     # Allow time for a full turn
-    time.sleep(2)  # Adjust based on Trilobot's turning speed and calibration
+    time.sleep(1.4)  # Adjust based on Trilobot's turning speed and calibration
 
     # Stop the Trilobot
     bot.stop()
