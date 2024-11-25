@@ -6,33 +6,32 @@ Script to calculate the time taken for one full turn
 from trilobot import Trilobot
 import time
 
-# Initialize the Trilobot
 bot = Trilobot()
 
-# Speed for the turn (adjust)
+#Speed for the turn (adjust as necessary)
 turn_speed = 0.9
 
 try:
-    # Record the start time
+    #Record the start time
     start_time = time.time()
     
-    # Start turning the Trilobot
+    #Start turning the Trilobot
     bot.turn_left(speed=turn_speed)
     
-    # Allow time for a full turn
-    time.sleep(1.4)  # Adjust based on Trilobot's turning speed and calibration
+    #Allow time for a full turn
+    time.sleep(1.4)  #Adjust based on Trilobot's turning speed and calibration
 
-    # Stop the Trilobot
+    #Stop the Trilobot
     bot.stop()
     
-    # Record the end time
+    #Record the end time
     end_time = time.time()
     
-    # Calculate the time taken for one full turn
+    #Calculate the time taken for one full turn
     turn_duration = end_time - start_time
     print(f"Time taken for one full turn: {turn_duration:.2f} seconds")
 
 except KeyboardInterrupt:
-    # Stop the Trilobot if interrupted
+    #Stop the Trilobot if interrupted
     bot.stop()
     print("Interrupted. Stopping the robot.")
