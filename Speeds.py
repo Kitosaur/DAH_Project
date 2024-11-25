@@ -15,32 +15,36 @@ tbot = Trilobot()
 
 def main():
 
-    speeds = [0.3, 0.5, 0.7, 0.9, 1.1] 
+    speeds = [0.3, 0.4,0.5, 0.6, 0.7, 0.8, 0.9, 1.0] 
     stop_distance = 5  # Distance from wall in cm to stop
 
 
     intended_speeds = []
     measured_speeds = []
-    
+        #ask the user to input the distance from the wall the Trilobot will be positioned at each time. 
     user_distance = float(input("Enter the distance from the wall in cm: "))
     
     for speed in speeds:
-        input("Press Enter to start measuring at speed {}...".format(speed))  # Wait for user input to start
+        #Wait for user input to start
+        input("Press Enter to start measuring at speed {}...".format(speed))  
+        #Trilobot moves forwards at the specified speed
         tbot.forward(speed) 
-        start_time = time.time()  # Record start time
+        #Record start time
+        start_time = time.time()  
     
-        # Move until the bot is 5 cm from the wall
+        #Move until the bot is 5 cm from the wall
         while tbot.read_distance() > stop_distance:
-            pass  # Keep moving forward until within stop distance
-    
-        end_time = time.time()  # Record end time when bot stops
-        tbot.stop()  # Stop the bot
+            pass  #Keep moving forward until within stop distance
+
+        #Record end time when bot stops
+        end_time = time.time()  
+        tbot.stop()  
         
-        # Calculate the time taken and human-measured speed
+        #Calculate the time taken and user-measured speed
         time_taken = end_time - start_time
         measured_speed = user_distance / time_taken  
     
-        # Store the intended and measured speeds for plotting
+        #Store the intended and measured speeds for plotting
         intended_speeds.append(speed)
         measured_speeds.append(measured_speed)
         print(f"Intended speed: {speed}, Measured speed: {measured_speed:.2f} cm/s")
