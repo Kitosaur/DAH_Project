@@ -7,7 +7,7 @@ Created on Tue Nov 19 11:14:22 2024
 """
 
 import time
-from trilobot import Trilobot, NUM_BUTTONS, BUTTON_A, BUTTON_C
+from trilobot import Trilobot, NUM_BUTTONS, BUTTON_A, BUTTON_X
 from datetime import datetime
 from time import sleep
 
@@ -67,9 +67,9 @@ def obstacles():
     
     turn_distance = 30
     wait_time = 2
-    speed = 0.6
-    quarter_turn_time = 1.0 #calibrate this
-    half_turn_time = 2.0 #calibrate this too
+    speed = 0.9
+    quarter_turn_time = 0.35 #calibrate this
+    half_turn_time = 0.7 #calibrate this too
     
     while True:
         distance = tbot.read_distance()
@@ -107,7 +107,7 @@ def obstacles():
 def wandering():
     
     start_time = time.time()
-    duration = 60  
+    duration = 500  
 
     while time.time() - start_time < duration:
         obstacles()
@@ -120,17 +120,17 @@ def main():
     """Main function to check for button presses and trigger corresponding actions."""
     last_state_A = False
   
-    last_state_C = False
+    last_state_X = False
   
     
-    while not tbot.read_button(BUTTON_C):
+    while not tbot.read_button(BUTTON_X):
         pass
 
     while True:
         # Check button states
         button_A_state = check_button_press(BUTTON_A)
        
-        button_C_state = check_button_press(BUTTON_C)
+        button_X_state = check_button_press(BUTTON_X)
 
         # If Button A is pressed, start the light and dance routine
         if button_A_state and not last_state_A:
@@ -138,13 +138,13 @@ def main():
             
        
         
-        if button_C_state and not last_state_C:
+        if button_X_state and not last_state_X:
             wandering()
 
         # Update the last states of the buttons
         last_state_A = button_A_state
       
-        last_state_C = button_C_state
+        last_state_X = button_X_state
 
 if __name__ == "__main__":
     main()
