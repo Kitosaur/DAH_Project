@@ -39,20 +39,20 @@ def obstacles():
             tbot.coast()
             time.sleep(wait_time)
             tbot.turn_right(speed)
-            time.sleep(quarter_turn_time) #betty is facing right
+            time.sleep(quarter_turn_time) #Trilobot is facing right
             tbot.coast()
             distance = tbot.read_distance()
             
             if distance < turn_distance:
                 time.sleep(wait_time)
                 tbot.turn_left(speed)
-                time.sleep(half_turn_time) #betty is facing left
+                time.sleep(half_turn_time) #Trilobot is facing left
                 tbot.coast()
                 distance = tbot.read_distance()
                 
                 if distance < turn_distance:
                     tbot.turn_left(speed)
-                    time.sleep(quarter_turn_time) #betty is facing backwards
+                    time.sleep(quarter_turn_time) #Trilobot is facing backwards
                     tbot.coast()
                     tbot.forward(speed)
                     time.sleep(2)
